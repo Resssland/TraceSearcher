@@ -196,7 +196,7 @@ public class SearchTraceFrame {
 
 
         private void GetTraceSessions(Config config){
-            String command="find /data/brt/BRT/current/logs/ -mindepth 1  -newermt '"+TimeConvertor.CalendarToString(config.getDateFrome())+"' ! -newermt '"+TimeConvertor.CalendarToString(config.getDateTo())+"' -exec zgrep '= "+config.getMsisdn()+"' {} \\; | grep hrs";
+            String command="find /data/brt/BRT/current/logs/ -mindepth 1  -newermt '"+TimeConvertor.CalendarToString(config.getDateFrome())+"' ! -newermt '"+TimeConvertor.CalendarToString(config.getDateTo())+"' -exec zgrep '= "+config.getMsisdn()+"' {} \\; | grep -E 'hrs.*msisdn'";
             Logger.log("Command of searching sessions:"+command,null);
             //StartButton.setEnabled(false);
             ArrayList<String> rowSessions=new ArrayList<String>();
