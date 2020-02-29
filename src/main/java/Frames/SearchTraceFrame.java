@@ -227,7 +227,7 @@ public class SearchTraceFrame {
             int SessionCount=0;
             int vocabularyIndex=0;
             model.setRowCount(0);
-            Pattern pattern= Pattern.compile("20.+= "+configuration.getMsisdn()+"");
+            Pattern pattern= Pattern.compile("20.+trace.+"+configuration.getMsisdn()+"");
             for(int i=2;i<rowSessions.size();i+=3) {
                 Matcher match = pattern.matcher(rowSessions.get(i));
                 while (match.find()) {
