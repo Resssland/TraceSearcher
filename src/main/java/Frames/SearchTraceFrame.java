@@ -228,18 +228,7 @@ public class SearchTraceFrame {
             int vocabularyIndex=0;
             model.setRowCount(0);
 			
-            Pattern pattern= Pattern.compile("20.+trace.+"+configuration.getMsisdn()+"");
-            for(int i=2;i<rowSessions.size();i+=3) {
-                Matcher match = pattern.matcher(rowSessions.get(i));
-                while (match.find()) {
-
-                    String tempArr[] = rowSessions.get(i).substring(match.start(), match.end()).split(" ");
-                    model.addRow(new Object[]{TimeConvertor.CalendarToString(TimeConvertor.StringToCalendar(tempArr[0] + " " + tempArr[1])), tempArr[5], vocabularyHRS.get(vocabularyIndex).get(tempArr[3].substring(5, tempArr[3].length() - 1)),rowSessions.get(i-1) });
-                    SessionCount++;
-                }
-                vocabularyIndex++;
-            }
-			pattern= Pattern.compile("20.+audit.+"+configuration.getMsisdn()+"");
+			Pattern pattern= Pattern.compile("20.+audit.+"+configuration.getMsisdn()+"");
 			for(int i=2;i<rowSessions.size();i+=3) {
                 Matcher match = pattern.matcher(rowSessions.get(i));
                 while (match.find()) {
